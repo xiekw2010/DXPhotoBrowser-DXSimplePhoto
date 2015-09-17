@@ -9,8 +9,13 @@
 #import "DXSimplePhoto.h"
 #import "SDWebImageManager.h"
 
+@interface DXSimplePhoto ()
+
+@property (nonatomic, strong) UIImage *placeholder;
+
+@end
+
 @implementation DXSimplePhoto {
-    UIImage *_placeholder;
     NSString *_imageURL;
     id<SDWebImageOperation> _operation;
 }
@@ -18,6 +23,7 @@
 + (instancetype)photoWithImageURL:(NSString *)imageURL {
     DXSimplePhoto *photo = [DXSimplePhoto new];
     photo->_imageURL = imageURL;
+    photo->_placeholder = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:imageURL];
 
     return photo;
 }
@@ -44,14 +50,16 @@
     return _placeholder;
 }
 
+- (CGSize)expectLoadedImageSize {
+    return _placeholder.size;
+}
+
 - (void)loadImageWithProgressBlock:(DXPhotoProgressBlock)progressBlock completionBlock:(DXPhotoCompletionBlock)completionBlock {
     __weak typeof(self) wself = self;
     SDWebImageCompletionWithFinishedBlock finishBlock = ^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        if (!error && image) {
-            _placeholder = image;
-            if (completionBlock) {
-                completionBlock(wself, image);
-            }
+        wself.placeholder = image;
+        if (completionBlock) {
+            completionBlock(wself, image);
         }
     };
     
