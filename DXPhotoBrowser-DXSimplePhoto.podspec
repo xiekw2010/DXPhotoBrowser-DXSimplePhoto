@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DXPhotoBrowser-DXSimplePhoto"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "DXPhotoBrowser's photo model embed with SDWebImage."
 
 # This description is used to generate tags and improve search results.
