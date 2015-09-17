@@ -1,0 +1,22 @@
+PODS:
+  - DXPhotoBrowser (0.1.3)
+  - DXPhotoBrowser-DXSimplePhoto (0.1.0):
+    - DXPhotoBrowser (~> 0.1.0)
+    - SDWebImage (~> 3.7)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
+
+DEPENDENCIES:
+  - DXPhotoBrowser-DXSimplePhoto (from `../`)
+
+EXTERNAL SOURCES:
+  DXPhotoBrowser-DXSimplePhoto:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DXPhotoBrowser: d78a3611f08a0d59ed15159c4a87ba7637feaad5
+  DXPhotoBrowser-DXSimplePhoto: 1a76c0dedc7878f64d773d219670c56676aae38c
+  SDWebImage: 759e3ea2db01b0db3ac2189173f0e1e9f2e2612b
+
+COCOAPODS: 0.35.0

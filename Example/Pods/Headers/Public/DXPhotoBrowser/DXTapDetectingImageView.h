@@ -1,0 +1,1 @@
+../../../DXPhotoBrowser/Pod/Classes/DXTapDetectingImageView.h
